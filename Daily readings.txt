@@ -1,0 +1,95 @@
+java.lang
+-----------
+System
+Error
+Throwable
+RunTimeException
+NullPointerException
+Object
+Class
+Math
+Math
+String
+StringBuffer
+StringBuilder
+
+
+
+Runnable
+Cloneable
+Comparable
+
+
+Wrapper Classes
+----------------
+Number
+Interger
+Float
+Short
+double
+Byte
+Long
+Character
+Boolean
+
+
+Runtime
+Process
+
+
+object
+--------
+equals()
+toString()
+clone()
+getClass()
+finalize()
+hashcode()
+wait()
+notify()
+notifyAll()
+
+
+
+java.util.*
+----------------
+Utiltity
+
+Date
+Scanner
+StringTokenizer
+Stack
+Vector
+Enumerations
+
+
+
+23/01/2023
+==============
+wrapper classes and their methods
+runtime class, process class
+
+java.util package
+
+classes like Date, Stack, Vector, StringTokenizer, enumeration
+
+
+
+24/01/2023
+==============
+
+Collection Framework
+--------------------
+Array 	  vs 		Collection classes
+
+Fixed size			Variable size
+Static 			Dynamic
+Homogeneous		Heterogenous
+
+set			- Unique elements   - HashSet, TreeSet, LinkedHashSet
+List			- Allow duplicates  - Vector (synchronized - slow), ArrayList, LinkedList, Set
+Queue 		- FIFO/Priority     - PriorityQueue, Dequeue
+Map			- Key-Value pair    - Hashtable, HashMap, TreeMap, LinkedHashMap
+
+Enumeration	- Used with legacy(old) classes | hasMoreELements(), nextElements()
+Iterator 		- Used with old and new both | hasNext(), next(), remove() 
