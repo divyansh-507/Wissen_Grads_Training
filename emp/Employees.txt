@@ -1,0 +1,4 @@
+Sunita|28|25000|Programmer
+shyam|26|10000.0|Clerk
+kartik|23|25000.0|Programmer
+Ramesh|56|80000.0|Manager

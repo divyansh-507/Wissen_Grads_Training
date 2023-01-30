@@ -3,25 +3,27 @@ package Employee.assignment;
 import java.util.*;
 
 abstract class Emp {
-    public static int count=0;
-    
-    private int age;
-    private String name;
-    private float salary;
-    private String designation;
+    public static int count = 0;
 
-    public final String toString(){
-	   return "Name : "+name+"\nSalary : "+salary+"\nAge : "+age+"\nDesignation : "+designation;
+    protected int age;
+    protected String name;
+    protected float salary;
+    protected String designation;
+
+    public final String toString() {
+        return "Name : " + name + "\nSalary : " + salary + "\nAge : " + age + "\nDesignation : " + designation + "\n";
     }
 
-    //public final void display() {
-    //    System.out.println("-------------------------");
-    //    System.out.println("Name:" + name);
-    //    System.out.println("Salary:" + salary);
-    //    System.out.println("Age:" + age);
-    //    System.out.println("Designation:" + designation);
-    //    System.out.println("-------------------------");
-    //}
+    // public final void display() {
+    // System.out.println("-------------------------");
+    // System.out.println("Name:" + name);
+    // System.out.println("Salary:" + salary);
+    // System.out.println("Age:" + age);
+    // System.out.println("Designation:" + designation);
+    // System.out.println("-------------------------");
+    // }
+    Emp() {
+    }
 
     public Emp(int salary, String designation) {
 
@@ -32,8 +34,8 @@ abstract class Emp {
 
         this.salary = salary;
         this.designation = designation;
-		
-	   count++;
+
+        count++;
 
     }
 
@@ -49,6 +51,17 @@ abstract class Emp {
         return salary;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public String getDesignation() {
+        return this.designation;
+    }
 }
 
 final class Clerk extends Emp {
@@ -117,22 +130,38 @@ class InvalidAgeException extends Exception {
 
 }
 
-public class EmpMain
-{
-	public static void main(String[] args){
-	   Vector<Emp> e = new Vector<Emp>(1000);
-	   
-		//Emp em = new Emp(800000,"CEO");
-        
-	   int ch1 = 0, ch2 = 0;
+class SortByName extends Emp implements Comparator<Emp> {
+
+    // Sorting in ascending order of name
+    public int compare(Emp a, Emp b) {
+
+        return a.name.compareTo(b.name);
+    }
+}
+
+class SortByDesignation implements Comparator<Emp> {
+
+    // Sorting in ascending order of Designation
+    public int compare(Emp a, Emp b) {
+        return a.designation.compareTo(b.designation);
+    }
+}
+
+public class EmpMain {
+    public static void main(String[] args) {
+        ArrayList<Emp> e = new ArrayList<Emp>(1000);
+        // Vector<Emp> e = new Vector<Emp>(1000);
+        // Emp em = new Emp(800000,"CEO");
+
+        int ch1 = 0, ch2 = 0, ch3 = 0;
 
         do {
             System.out.println("-------------------");
             System.out.println("1. Create");
             System.out.println("2. Display");
             System.out.println("3. RaiseSalary");
-            System.out.println("4.Exit");
-            System.out.print("Enter the choice :");
+            System.out.println("4. Exit");
+            System.out.print("Enter the choice : ");
             try {
                 ch1 = new Scanner(System.in).nextInt();
             } catch (InputMismatchException q) {
@@ -178,41 +207,89 @@ public class EmpMain
                     break;
                 }
                 case 2: {
-				System.out.println("==================");
-				
-				Enumeration<Emp> en = e.elements();
-				
-				while(en.hasMoreElements()){
-					System.out.println("-----------------");
-					System.out.println(en.nextElement());
-					System.out.println("-----------------");
-				}
-				
-				//for(int i = 0;i < Emp.count;i++){
-				//	System.out.println("-----------------");
-				//	System.out.println(e[i]);
-				//	System.out.println("-----------------");
-				//}
 
-                      // for (int i = 0; i < Emp.count; i++) {
-                      //     e[i].display();
-                      //}
+                    do {
+                        System.out.println("\n-------------------");
+                        System.out.println("1. Name");
+                        System.out.println("2. Designation");
+                        System.out.println("3. Age");
+                        System.out.println("4. Exit");
+                        System.out.print("Enter a choice to display the Details Accordingly : ");
+
+                        try {
+                            ch3 = new Scanner(System.in).nextInt();
+                        } catch (InputMismatchException q) {
+                            System.out.println("Please Enter Numbers only ... ");
+                            ch3 = 0;
+                        }
+
+                        switch (ch3) {
+                            case 1:
+                                Collections.sort(e, new SortByName());
+                                System.out.println("\nSorted by name : ");
+                                System.out.println("==================");
+                                break;
+                            case 2:
+                                Collections.sort(e, new SortByDesignation());
+                                System.out.println("\nSorted by Designation : ");
+                                System.out.println("==================");
+                                break;
+                            case 3:
+                                Collections.sort(e, new SortByAge());
+                                System.out.println("\nSorted by Age : ");
+                                System.out.println("==================");
+                                break;
+                            case 4:
+                                break;
+                            default:
+                                System.out.println("Enter number between 1 - 4");
+                                break;
+                        }
+
+                        Iterator it = e.iterator();
+
+                        while (it.hasNext())
+                            System.out.println(it.next());
+                        break;
+                    } while (ch3 != 4);
+
+                    // System.out.println("==================");
+
+                    // Enumeration<Emp> en = e.elements();
+
+                    // while (en.hasMoreElements()) {
+                    // System.out.println("-----------------");
+                    // System.out.println(en.nextElement());
+                    // System.out.println("-----------------");
+                    // }
+
+                    // for(int i = 0;i < Emp.count;i++){
+                    // System.out.println("-----------------");
+                    // System.out.println(e[i]);
+                    // System.out.println("-----------------");
+                    // }
+
+                    // for (int i = 0; i < Emp.count; i++) {
+                    // e[i].display();
+                    // }
                     break;
 
                 }
                 case 3: {
-                    for (int i = 0; i < Emp.count; i++) {
-                        e.get(i).raiseSalary();
+                    Iterator<Emp> i = e.iterator();
+                    while (i.hasNext()) {
+                        i.next().raiseSalary();
                     }
                     break;
                 }
-			case 4 :
-				System.out.println("Total Number of Employees created : " + Emp.count);
-				break;
+                case 4:
+                    System.out.println("Total Number of Employees created : " + Emp.count);
+                    break;
                 default:
                     System.out.println("Please Enter number between 1 - 4");
             }
 
         } while (ch1 != 4);
-	}
+    }
+
 }

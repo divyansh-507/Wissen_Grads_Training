@@ -92,4 +92,83 @@ Queue 		- FIFO/Priority     - PriorityQueue, Dequeue
 Map			- Key-Value pair    - Hashtable, HashMap, TreeMap, LinkedHashMap
 
 Enumeration	- Used with legacy(old) classes | hasMoreELements(), nextElements()
-Iterator 		- Used with old and new both | hasNext(), next(), remove() 
+Iterator 		- Used with old and new both | hasNext(), next(), remove()
+
+
+
+25/01/2023
+===============
+
+
+java.io.*
+----------
+input stream    -data coming in		||  {Byte
+output stream   -data going out		||  Stream}
+
+Reader	||	{character
+Writer	||	 Stream}
+
+
+InputStream	- FileInputStream, BufferInputStream, PipeInputStream, DataInputStream ...
+OutputStream	- FileOutputStream, BufferOutputStream, PipeOutputStream, PrintStream, DataOutputStream ...
+
+Reader		- FileReader, BufferedReader, ...
+Write			- FileWriter, BufferedWriter, PrintWriter ...
+
+-- implementation of BufferedReader(Reading from the keyboard)
+-- reading a file
+
+DataInput
+DataOutput
+
+- RandomAccessFile = implements both DataInput & DataOutput
+
+File (class)
+-------
+exists()
+createNewFile()
+delete()
+isFile()
+isDirectory()
+canRead()
+canWrite()
+isHidden()
+
+
+
+27/01/2023
+==================
+
+Serialization		- persisting an object into sec obj || process of converting an obj into bytestream
+Deserialization		- reading back an object from sec storage || converting bytestream to object
+
+ObjectOutputStream
+-------------------
+writeObject()
+close()
+
+=>marker 	  =	interface that doesnt contain anything
+=>functional = 	interface that have only 1 abstract method
+
+
+
+30/01/2023
+===================
+
+Intro to DataBase
+Advantages of DB over file system
+
+RDBMS
+-------------
+Entity		- Table
+Tuple			- Record/Row
+Domain		- Range of values
+Attribute/Field	- Column
+
+IBM (DB2)
+Oracle (Oracle, MySQL)
+MS (MS SQL Server)
+
+
+tiger id-pass
+
