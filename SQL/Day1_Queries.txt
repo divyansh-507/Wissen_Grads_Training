@@ -1,0 +1,45 @@
+// create table techers
+
+create table TEACHERS(
+CLASS number(2) PRIMARY KEY, NAME varchar(10), SUBJECT varchar(10)
+);
+
+
+// insert values
+
+insert into TEACHERS values(1,'Sujatha','Maths');
+insert into TEACHERS values(2,'Manisha','Science');
+insert into TEACHERS values(3,'Sunil','English');
+insert into TEACHERS values(4,'Mamta','Hindi');
+insert into TEACHERS values(5,'Dinesh','Sports');
+insert into TEACHERS values(6,'Divya','Social');
+insert into TEACHERS values(7,'Puneet','ECA');
+
+
+//create table students
+
+create table STUDENT(
+ROLLNO number(2) PRIMARY KEY, NAME varchar(10), SCHOOL varchar(10),
+STANDARD number(2), AGE number(3)
+);
+
+
+//making "Standard" foreign key in STUDENT table
+
+alter table STUDENT
+add FOREIGN KEY (STANDARD) REFERENCES TEACHERS(CLASS);
+
+
+// inserting into student table
+
+insert into STUDENT values(1,'Raju','KV',5,11);
+insert into STUDENT values(2,'Pooja','KV',3,9);
+insert into STUDENT values(3,'Suman','KV',3,9);
+insert into STUDENT values(4,'Daniel','KV',4,10);
+insert into STUDENT values(5,'Manju','KV',7,13);
+
+
+// retrieving class, name and subject using roll number
+
+select TEACHERS.CLASS, TEACHERS.NAME, TEACHERS.SUBJECT from TEACHERS, STUDENT 
+where STUDENT.STANDARD = TEACHERS.CLASS and STUDENT.ROLLNO = 3;

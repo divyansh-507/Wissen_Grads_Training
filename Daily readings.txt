@@ -168,7 +168,75 @@ Attribute/Field	- Column
 IBM (DB2)
 Oracle (Oracle, MySQL)
 MS (MS SQL Server)
+........
 
 
-tiger id-pass
+Normalization
+
+SQL Types
+-----------
+
+DDL		- Data Definition Language		- CREATE, DROP, ALTER, TRUNCATE
+DML		- Data Manipulation Language	- INSERT, UPDATE, DELETE
+DCL		- Data Control Language		- GRANT, REVOKE
+TCL		- Transaction Control Language	- COMMIT, ROLLBACK, SAVEPOINT
+DRL/DDL	- Data Retrieval/Query Language	- SELECT
+
+
+Types of Keys
+---------------
+Candidate Key
+Super Key
+Primary Key
+Foreign Key
+Unique Key
+Surrogate Key
+Composite Key
+Alternate Key
+
+
+Types of joins
+----------------
+Inner Join
+Outer Join
+Left Outer Join
+Right Outer Join
+Full outer Join
+Equi Join
+Self Join
+
+
+Sub Queries
+----------------
+
+
+JDBC
+---------------
+
+Java Data Base Connectivity
+1. Load/Register the Driver
+	Class.forName("");
+	a. JDBC-ODBC
+	b. Part-Java Part-Native
+	c. Middleware
+	d. Pure Java / Thin Driver
+2. Create/Establish connection
+	Connection con = DriverManagaer.getConnection("url/dsn", "uname", "pwd");
+
+3. Create Statement object
+	Statement stmt = con.createStatement("insert into EMP values('Ravi',32)");
+
+4. Execute the Statement/query
+	stmt.executeUpdate("insert/delete/update");
+	ResultSet rs = stmt.executeQuery("select");
+
+
+
+Types of statements
+----------------------
+
+Simple  Statements
+PreparedStatements  		// query compiled only once
+CallableStatements		// call stored procedures
+Batch   Stataments		// decides at last statements, either all or none
 
