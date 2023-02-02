@@ -213,6 +213,8 @@ Sub Queries
 JDBC
 ---------------
 
+.sql   - run all at once
+
 Java Data Base Connectivity
 1. Load/Register the Driver
 	Class.forName("");
@@ -239,4 +241,30 @@ Simple  Statements
 PreparedStatements  		// query compiled only once
 CallableStatements		// call stored procedures
 Batch   Stataments		// decides at last statements, either all or none
+
+
+
+
+SQL
+PL/SQL
+
+create or replace procedure my-proc as
+begin
+insert into EMP values('Mohan',56);
+end;
+/
+
+
+In PL/SQL
+------------
+procedure	-does not return values
+function 	-returns values
+
+
+Types of ResultSet
+--------------------
+TYPE_FORWARD_ONLY
+TYPE_SCROLL_SENSITIVE
+CONCUR_READ_ONLY
+CONCUR_UPDATABLE
 
